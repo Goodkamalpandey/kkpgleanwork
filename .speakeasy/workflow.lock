@@ -1,0 +1,47 @@
+speakeasyVersion: 1.551.0
+sources:
+    Glean API:
+        sourceNamespace: glean-api-specs
+        sourceRevisionDigest: sha256:766f374184dd7d6b119aef718a826e26e7e690a65bd8edd8e326c75699c9c0f5
+        sourceBlobDigest: sha256:b566588e295fa760c08dc3e5f61f4026e3b295999709bbec5a3f434f51316f89
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1749670152
+    Glean Client API:
+        sourceNamespace: glean-client-api
+        sourceRevisionDigest: sha256:aec0770b5bcca91068c3a844cb9ef4a091281f6cc3b7d86f2abef1bd6fb2b301
+        sourceBlobDigest: sha256:acbff643c05e81df02a7c7743df01efa837a047ae6fece17514a1134a3665519
+        tags:
+            - latest
+            - 0.9.0
+targets:
+    glean:
+        source: Glean API
+        sourceNamespace: glean-api-specs
+        sourceRevisionDigest: sha256:766f374184dd7d6b119aef718a826e26e7e690a65bd8edd8e326c75699c9c0f5
+        sourceBlobDigest: sha256:b566588e295fa760c08dc3e5f61f4026e3b295999709bbec5a3f434f51316f89
+        codeSamplesNamespace: glean-api-specs-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:0bb2f9b72e8ea34f9707560557e538d13a0e786efcb8398fc6e69dfdcfc6af01
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Glean API:
+            inputs:
+                - location: registry.speakeasyapi.dev/glean-el2/sdk/glean-api-specs
+            output: .speakeasy/glean-merged-spec.yaml
+    targets:
+        glean:
+            target: typescript
+            source: Glean API
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/glean-el2/sdk/glean-api-specs-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (API Client)
+                blocking: false
+            testing:
+                enabled: true
