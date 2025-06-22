@@ -1,4 +1,5 @@
-# Glean TypeScript API Client :Kamal working copy#
+# Kamal Copy#
+# Glean TypeScript API Client 
 
 The Glean TypeScript SDK provides convenient access to the Glean REST API in both browser and Node.js environments. It offers full TypeScript types, modern async/await support, and uses the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API under the hood.
 
